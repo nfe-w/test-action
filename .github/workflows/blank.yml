@@ -1,0 +1,23 @@
+name: Test Action
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  TEST1: ${{ github.repository }}
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step1
+        run: |
+          echo ${{ env.TEST1 }}
+          echo ${{ github.repository_name }}
