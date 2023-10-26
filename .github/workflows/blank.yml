@@ -17,7 +17,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Extract Repository Name
+        run: |
+          REPO_NAME=${{ github.repository }}
+          REPO_NAME=${REPO_NAME#*/}
+          echo "Repository Name: $REPO_NAME"
       - name: Step1
         run: |
           echo ${{ env.TEST1 }}
           echo ${{ github.repository_name }}
+          echo $REPO_NAME
