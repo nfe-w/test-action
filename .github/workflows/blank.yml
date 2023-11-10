@@ -11,6 +11,7 @@ on:
 
 env:
   TEST1: ${{ github.repository }}
+  TEST2: ${{ github.event.repository.name }}
 
 jobs:
   job1:
@@ -25,5 +26,6 @@ jobs:
       - name: Step1
         run: |
           echo ${{ env.TEST1 }}
+          echo ${{ env.TEST2 }}
           echo ${{ github.repository_name }}
           echo $REPO_NAME
